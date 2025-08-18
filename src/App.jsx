@@ -5,9 +5,9 @@ import Navbar from "./components/Navbar";
  import About from "./pages/About"; 
  import Timeline from "./pages/Timeline"; 
  import Resources from "./pages/Resources";
-import AboutWebsite from "./pages/AboutWebsite";
   import TopicDetail from "./pages/TopicDetail"; 
   import Reviews from "./pages/Review"; 
+  import AboutWebsite from "./pages/AboutWebsite";
   import Footer from "./components/Footer";
   function App() 
   { 

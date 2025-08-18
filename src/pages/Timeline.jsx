@@ -50,7 +50,7 @@ export default function Timeline() {
   return (
     <section
       id="timeline"
-      className="bg-gradient-to-b from-blue-50 via-white to-blue-100 py-24 px-4 sm:px-8 lg:px-16 min-h-screen flex items-center justify-center"
+      className="bg-gradient-to-b from-indigo-100 via-purple-50 to-blue-100 py-24 px-4 sm:px-8 lg:px-16 min-h-screen flex items-center justify-center"
     >
       <div className="w-full max-w-6xl">
         <h2 className="text-5xl font-extrabold text-blue-800 text-center mb-12 transition-all duration-300 hover:scale-105">

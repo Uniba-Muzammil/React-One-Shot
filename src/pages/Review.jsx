@@ -18,16 +18,15 @@ export default function Reviews() {
   return (
     <section
       id="reviews"
-      className="bg-gradient-to-b from-blue-100 via-white to-blue-50 py-24 px-4 sm:px-8 lg:px-16 min-h-screen"
-    >
-      <div className="w-full max-w-6xl mx-auto text-center">
-        <h2 className="text-5xl font-extrabold text-blue-800 mb-12 transition-all duration-300 hover:scale-105">
+      className="bg-gradient-to-b from-indigo-100 via-purple-50 to-blue-100 py-20 px-4 sm:px-8 lg:px-16 min-h-screen">
+      <div className="w-full max-w-6xl mx-auto text-center ">
+        <h2 className="text-5xl font-extrabold text-blue-800 mb-12 transition-all duration-300 hover:scale-105 mt-0">
           Reviews
         </h2>
 
         {/* Review Form */}
         <div className="bg-white/90 rounded-3xl border-2 border-blue-100 shadow-xl p-8 mb-12 hover:shadow-blue-300 transition-all duration-500 hover:bg-blue-50 hover:border-blue-200 max-w-2xl mx-auto">
-          <h3 className="text-2xl font-bold text-blue-900 mb-6">Drop Your Review</h3>
+          <h3 className="text-xl font-bold text-gray-600 mb-6">Drop Your Review</h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
@@ -73,7 +72,7 @@ export default function Reviews() {
             </div>
             <button
               type="submit"
-              className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-2xl shadow-lg hover:bg-blue-700 transition-all duration-300"
+              className="bg-indigo-300 text-gray-600 font-semibold px-6 py-3 rounded-2xl shadow-lg hover:bg-blue-700 transition-all duration-300"
             >
               Submit Review
             </button>

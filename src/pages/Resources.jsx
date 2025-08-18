@@ -35,7 +35,7 @@ export default function Resources() {
   return (
     <section
       id="resources"
-      className="bg-gradient-to-b from-blue-100 via-white to-blue-50 py-24 px-4 sm:px-8 lg:px-16 min-h-screen flex items-center justify-center"
+      className="bg-gradient-to-b from-indigo-200 via-purple-50 to-blue-100 py-24 px-4 sm:px-8 lg:px-16 min-h-screen flex items-center justify-center"
     >
       <div className="w-full max-w-6xl text-center">
         <h2 className="text-5xl font-extrabold text-blue-800 mb-12 transition-all duration-300 hover:scale-105">

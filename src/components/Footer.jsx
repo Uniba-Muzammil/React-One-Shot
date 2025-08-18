@@ -21,16 +21,19 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-r from-[#dbeafe] via-[#e0f2fe] to-[#f0fdf4] text-gray-800 px-6 pt-10 pb-6 transition-all duration-500 ease-in-out">
+    <footer className="relative bg-gradient-to-r from-purple-100 via-[#e0f2fe] to-[#f0fdf4] text-gray-800 px-6 pt-10 pb-6 transition-all duration-500 ease-in-out">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
 
-        {/* Left */}
         <div className="text-center md:text-left">
-          <h2 className="text-2xl font-extrabold tracking-wide text-indigo-700">UnibaStack</h2>
-          <p className="text-sm mt-2 text-gray-600">
-            Created by Uniba Muzammil — CS Student & React Enthusiast.
-          </p>
-        </div>
+  <h2 className="text-2xl font-extrabold tracking-wide">
+    <span className="text-indigo-700">Uniba</span>
+    <span className="text-indigo-500">Stack</span>
+  </h2>
+  <p className="text-sm mt-2 text-gray-600">
+    Created by Uniba Muzammil — CS Student & React Enthusiast.
+  </p>
+</div>
+
 
 
         {/* Right Icons */}

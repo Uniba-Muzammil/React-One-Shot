@@ -57,7 +57,7 @@ function Navbar() {
           </Link>
 
           <Link 
-            to="/guide" 
+            to="/about" 
             onClick={() => setIsDropdownOpen(false)}
             className="relative hover:text-purple-600 transition duration-300 
                        after:content-[''] after:block after:w-0 after:h-[2px] 
@@ -68,7 +68,7 @@ function Navbar() {
           </Link>
 
           <Link 
-            to="/aboutwebsite" 
+            to="/guide" 
             onClick={() => setIsDropdownOpen(false)}
             className="relative hover:text-purple-600 transition duration-300 
                        after:content-[''] after:block after:w-0 after:h-[2px] 

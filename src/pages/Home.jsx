@@ -1,28 +1,37 @@
-export default function Home(){
+import {
+  LiveProvider,
+  LiveEditor,
+  LiveError,
+  LivePreview,
+} from "react-live";
+
+const EditorHeader = () => (
+  <div className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-t-lg">
+    <span className="w-3 h-3 rounded-full bg-red-500"></span>
+    <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
+    <span className="w-3 h-3 rounded-full bg-green-500"></span>
+    <span className="ml-4 text-gray-300 text-sm font-mono">App.jsx</span>
+  </div>
+);
+
+export default function Home() {
   return (
     <div className="pt-24 px-4 bg-gradient-to-b from-blue-50 via-purple-50 to-blue-100">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-100 via-purple-100 to-blue-200 text-center py-16 px-4 rounded-xl shadow-xl transition-all duration-500 hover:from-blue-200 hover:to-purple-200">
-<h1 className="text-4xl font-bold mb-4 transition-all duration-500 hover:scale-105">
-  <span className="text-blue-900 hover:text-gray-700 transition-colors duration-300">
-    Welcome to
-  </span>
-  {" "}
-  <span className="text-purple-700 hover:text-pink-500 transition-colors duration-300">
-    UnibaStack
-  </span>
-</h1>
-<p className="text-xl text-gray-700 max-w-2xl mx-auto transition-all duration-500 hover:text-blue-800">
-  A learning platform built by a Computer Science undergraduate to help you learn React 
-  through hands-on examples and simplified theory.
-</p>
-       <a
-  href="#topics"
-  className="mt-8 inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full shadow-lg font-semibold 
-             transition-all duration-500 ease-in-out hover:from-purple-600 hover:to-blue-600 hover:scale-105"
->
-  Start Learning
-</a> 
+        <h1 className="text-4xl font-bold mb-4 transition-all duration-500 hover:scale-105">
+          <span className="text-blue-900 hover:text-gray-700 transition-colors duration-300">
+            Welcome to
+          </span>{" "}
+          <span className="text-purple-700 transition-colors duration-300">
+            UnibaStack
+          </span>
+        </h1>
+        <p className="text-xl text-gray-700 max-w-2xl mx-auto transition-all duration-500 hover:text-blue-800">
+          A learning platform built by a Computer Science undergraduate to help
+          you learn React through hands-on examples and simplified theory.
+        </p>
+       
       </section>
 
       {/* Theory + Practice Section */}
@@ -30,22 +39,103 @@ export default function Home(){
         <div className="bg-white/90 shadow-xl p-8 rounded-3xl border-2 border-blue-100 hover:shadow-blue-200 hover:bg-blue-50 transition-all duration-300">
           <h2 className="text-2xl font-bold text-blue-700 mb-3">📘 React Theory</h2>
           <p className="text-gray-700 leading-relaxed">
-            All concepts are explained with beginner-friendly comments inside the code — like a personal mentor guiding you line by line.
+            All concepts are explained with beginner-friendly comments inside
+            the code — like a personal mentor guiding you line by line.
           </p>
         </div>
 
         <div className="bg-white/90 shadow-xl p-8 rounded-3xl border-2 border-blue-100 hover:shadow-blue-200 hover:bg-blue-50 transition-all duration-300">
           <h2 className="text-2xl font-bold text-blue-700 mb-3">⚙️ Practical Components</h2>
           <p className="text-gray-700 leading-relaxed">
-            Real, working React components that demonstrate theory in action. Ready to run, tweak, and learn by doing.
+            Real, working React components that demonstrate theory in action.
+            Ready to run, tweak, and learn by doing.
           </p>
         </div>
       </section>
 
+      {/* Features Section */}
+      <section className="mt-24 max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl font-extrabold text-purple-800 mb-10">🚀 Why Learn with UnibaStack?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
+          <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-purple-200 transition-all">
+            <h3 className="font-bold text-xl text-blue-700 mb-2">✨ Simplified Learning</h3>
+            <p className="text-gray-600">No jargon — just clear explanations with real-life coding examples.</p>
+          </div>
+          <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-purple-200 transition-all">
+            <h3 className="font-bold text-xl text-blue-700 mb-2">💻 Live Code Editor</h3>
+            <p className="text-gray-600">Write, test, and reset code instantly while reading the theory.</p>
+          </div>
+          <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-purple-200 transition-all">
+            <h3 className="font-bold text-xl text-blue-700 mb-2">🎯 Interview Ready</h3>
+            <p className="text-gray-600">Quick review notes & code snippets designed for interview prep.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Section */}
+      {/* Demo Section */}
+<section className="mt-24">
+  {/* Heading Centered */}
+  <h2 className="text-3xl font-extrabold text-blue-800 mb-6 text-center">
+    🖼️ See It in Action
+  </h2>
+
+  <div className="bg-white rounded-2xl shadow-xl max-w-4xl mx-auto p-6 border">
+    <LiveProvider code={`function App() {\n  return <h1>Welcome To UnibaStack 🌍</h1>\n}`}>
+
+      <EditorHeader />
+
+      {/* Editor Left-Aligned */}
+      <div className="bg-gray-900 rounded-b-lg shadow-lg overflow-hidden text-left">
+        <LiveEditor
+          className="font-mono text-sm leading-6 px-4 py-3"
+          style={{
+            fontFamily: "Fira Code, monospace",
+            backgroundColor: "transparent",
+            color: "#f8f8f2",
+            minHeight: "180px",
+          }}
+        />
+      </div>
+
+      <LiveError className="text-red-500 font-mono mt-2 px-2 text-left" />
+
+      {/* Output Left-Aligned */}
+      <div className="mt-4 bg-gray-50 p-4 rounded-xl shadow-md border border-gray-200 text-left">
+        <h3 className="text-lg font-semibold text-gray-700 mb-2">🔍 Output</h3>
+        <LivePreview className="p-3 border rounded-lg bg-white" />
+      </div>
+    </LiveProvider>
+
+    <p className="mt-4 text-gray-600 text-center">
+      Edit the code → see instant results. Learn React by doing, not just by reading.
+    </p>
+  </div>
+</section>
+
+
+      {/* Roadmap Section */}
+      <section className="mt-24 text-center max-w-5xl mx-auto">
+        <h2 className="text-3xl font-extrabold text-purple-800 mb-10">📈 Your Learning Path</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-gradient-to-r from-blue-100 to-purple-100 p-6 rounded-xl shadow-md">
+            <h3 className="font-bold text-xl text-blue-800 mb-2">Beginner</h3>
+            <p className="text-gray-700">JSX, Components, Props, State</p>
+          </div>
+          <div className="bg-gradient-to-r from-purple-100 to-blue-100 p-6 rounded-xl shadow-md">
+            <h3 className="font-bold text-xl text-blue-800 mb-2">Intermediate</h3>
+            <p className="text-gray-700">Hooks, Events, API Integration</p>
+          </div>
+          <div className="bg-gradient-to-r from-blue-100 to-purple-100 p-6 rounded-xl shadow-md">
+            <h3 className="font-bold text-xl text-blue-800 mb-2">Advanced</h3>
+            <p className="text-gray-700">Projects, Optimization, Interview Prep</p>
+          </div>
+        </div>
+      </section>
+
       {/* What You'll Learn Section */}
-      <section id="topics" className="mt-24 text-center max-w-4xl mx-auto  pb-6
-    ">
-        <h2 className="text-3xl font-extrabold text-blue-800 mb-6 ">🔍 What You'll Learn</h2>
+      <section id="topics" className="mt-24 text-center max-w-4xl mx-auto pb-6">
+        <h2 className="text-3xl font-extrabold text-blue-800 mb-6">🔍 What You'll Learn</h2>
         <ul className="text-gray-700 space-y-3 text-lg mb-6">
           <li className="hover:text-blue-800 transition">✔️ JSX & Components</li>
           <li className="hover:text-blue-800 transition">✔️ Props & State</li>
@@ -56,8 +146,31 @@ export default function Home(){
         </ul>
       </section>
 
-     
- </div>
+      {/* Final Call to Action */}
+       <section className="flex justify-center items-center py-20 bg-gradient-to-r from-blue-200 to-purple-300 text-gray-900 ">
+      <div className="max-w-2xl text-center px-6 ">
+        <h2 className="text-3xl font-extrabold mb-4 text-blue-900">
+           Start Your React Journey Today!
+        </h2>
+        <p className="text-lg mb-6 text-gray-700">
+          Learn React with hands-on coding, interactive previews, and simplified theory — 
+          everything you need in one place.
+        </p>
+        <button className="bg-indigo-500 text-white px-8 py-3 rounded-full shadow-md font-semibold hover:bg-blue-600 hover:scale-105 transition-transform duration-300">
+          Start Learning Now
+        </button>
+      </div>
+    </section>
+    </div>
   );
-};
+}
+
+
+
+
+
+
+
+
+
 
