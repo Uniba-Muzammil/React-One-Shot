@@ -31,10 +31,10 @@ export default function TopicDetail() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-extrabold text-center mb-10"
+        className="text-4xl md:text-3xl font-extrabold text-center mb-10"
       >
         <motion.span
-          className="text-4xl md:text-5xl inline-block"
+          className="text-4xl md:text-3xl inline-block"
           animate={{ y: [0, -8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
         >
@@ -54,8 +54,8 @@ export default function TopicDetail() {
           className="md:w-1/2 p-6 bg-gradient-to-br from-purple-50 via-white to-indigo-50 shadow-2xl rounded-3xl border border-purple-300/60 relative overflow-hidden transform transition hover:-translate-y-2 hover:shadow-3xl"
         >
           {/* Heading with static book emoji and unique gradient */}
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-6 flex items-center gap-3">
-            <span className="text-3xl md:text-4xl">📖</span>
+          <h2 className="text-xl md:text-3xl font-extrabold mb-6 flex items-center gap-3">
+            <span className="text-xl md:text-3xl">📖</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-indigo-300 to-cyan-500">
               Theory
             </span>

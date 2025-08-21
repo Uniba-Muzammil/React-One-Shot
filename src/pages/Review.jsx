@@ -26,7 +26,7 @@ export default function Reviews() {
 
         {/* Review Form */}
         <div className="bg-white/90 rounded-3xl border-2 border-blue-100 shadow-xl p-8 mb-12 hover:shadow-blue-300 transition-all duration-500 hover:bg-blue-50 hover:border-blue-200 max-w-2xl mx-auto">
-          <h3 className="text-xl font-bold text-gray-600 mb-6">Drop Your Review</h3>
+          <h3 className="text-xl font-bold text-gray-600 mb-6 text-left">Drop Your Review here</h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"

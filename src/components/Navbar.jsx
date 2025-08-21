@@ -105,10 +105,13 @@ function Navbar() {
             >
               <div className="py-3">
                 {[
+                  { path: "react", label: "What is React ?" },
                   { path: "jsx-components", label: "JSX & Components" },
                   { path: "props-state", label: "Props & State" },
                   { path: "event-handling", label: "Event Handling" },
                   { path: "react-hooks", label: "React Hooks" },
+                  { path: "react-routing", label: "React Routing" },
+                  { path: "mapping", label: "Mapping" },
                   { path: "api-integration", label: "API Integration" },
                   { path: "project-building-tips", label: "Project Tips" },
                 ].map((item) => (
