@@ -183,6 +183,8 @@ export default function Home() {
           <li className="hover:text-blue-800 transition">✔️ Props & State</li>
           <li className="hover:text-blue-800 transition">✔️ Event Handling</li>
           <li className="hover:text-blue-800 transition">✔️ React Hooks</li>
+          <li className="hover:text-blue-800 transition">✔️ React Routing</li>
+          <li className="hover:text-blue-800 transition">✔️ Mapping</li>
           <li className="hover:text-blue-800 transition">✔️ API Integration</li>
           <li className="hover:text-blue-800 transition">✔️ Project Building</li>
         </ul>
