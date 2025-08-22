@@ -2,10 +2,14 @@ const topicsData = [
   {
     id: "react",
     title: "React",
-    theory:  `What is React?
-
-React is a JavaScript library created by Facebook for building user interfaces (UIs).. It helps you make fast and interactive websites.. Uses a component-based structure → you break your UI into small, reusable pieces.. Uses a Virtual DOM → updates only the parts of the page that change (not the whole page) , This makes React websites and applications faster.`,
-    code: `// This is how you write comments inside jsx but this wont work under return jsx block or you can say jsx markup the double slash will through error
+    theory:  `
+    - ***What is React ?*** React is a JavaScript library created by Facebook for building user interfaces (UIs).
+- It helps you make fast and interactive websites.
+- Uses a component-based structure → you break your UI into small, reusable pieces.
+- Uses a Virtual DOM → updates only the parts of the page that change (not the whole page). This makes React websites and applications faster.
+`.trim(),
+    
+code: `// This is how you write comments inside jsx but this wont work under return jsx block or you can say jsx markup the double slash will through error
 {/*this is how you write comments inside return block or jsx markup*/}
 //while using simple javascript you can use (/*...*/) to write comments.
 
@@ -55,7 +59,24 @@ React is a JavaScript library created by Facebook for building user interfaces (
   {
     id: "jsx-components",
     title: "JSX & Components",
-    theory: "JSX (JavaScript XML) → a syntax that lets you write HTML inside JavaScript.. Looks like HTML but is actually JavaScript under the hood.. Makes UI code more readable.. Components → building blocks of React apps.. Two types :- Functional Components (most common) and Class Components.. Each component is reusable, just like Lego blocks.",
+    theory: `- **JSX (JavaScript XML)** → a syntax that lets you write HTML inside JavaScript.  
+- Looks like HTML but is actually JavaScript under the hood.  
+- Makes UI code more readable.  
+- **Components** → building blocks of React apps.  
+  - **Functional Components**  
+    - The most common type.  
+    - Defined as simple JavaScript functions.  
+    - Accept props (inputs) and return JSX.  
+    - Can use React Hooks (like useState, useEffect ) for state and lifecycle.  
+    - Easier to read and test.  
+  - **Class Components**  
+    - Older way of writing components.  
+    - Defined as ES6 classes that extend React.Component.  
+    - Use a render()  method to return JSX.  
+    - State and lifecycle methods are handled inside the class.  
+    - Rarely used in modern React, but still supported.  
+- Each component is reusable, just like Lego blocks.
+`,
     code: `
 //3. Components
 //Components are reusable pieces of UI.
@@ -93,7 +114,20 @@ render(<Hello />);
   {
     id: "props-state",
     title: "Props & State",
-    theory: "Props in React :- Short for Properties → like arguments you pass into a function.. Used to send data from a parent component → child component ( Parent is like the giver, child is like the receiver ).. Read-only → the child cannot change props, it can only use them.. Think of props as inputs or gifts a parent gives to a child component.. Makes components reusable, because the same child can display different data depending on what the parent sends.. State in React:- State = a component’s personal data storage → it belongs to the component itself.. Unlike props, state can change inside the component.. When state changes → React automatically updates (re-renders) the UI.. Think of state as the child’s own snack box → the child can add, remove, or change what’s inside anytime.. State is perfect for things like counters, toggles, forms, or any interactive data that changes over time.",
+    theory: `- **Props in React**  
+  - Short for **Properties** → like arguments you pass into a function.  
+  - Used to send data from a **parent component → child component**  
+    - (Parent is like the giver, child is like the receiver).  
+  - **Read-only** → the child cannot change props, it can only use them.  
+  - Think of props as **inputs or gifts** a parent gives to a child component.  
+  - Makes components **reusable**, because the same child can display different data depending on what the parent sends.  
+- **State in React**  
+  - **State = a component’s personal data storage** → it belongs to the component itself.  
+  - Unlike props, **state can change inside the component**.  
+  - When state changes → React automatically **re-renders the UI**.  
+  - Think of state as the child’s **own snack box** → the child can add, remove, or change what’s inside anytime.  
+  - State is perfect for things like **counters, toggles, forms, or any interactive data** that changes over time.  
+`,
     code: `
 // Greeting component:
 // - This is a functional component that takes 'props' as input.
@@ -138,7 +172,14 @@ render(<Counter />);
   {
     id: "event-handling",
     title: "Event Handling",
-    theory: "Event Handling in ReactEvents = actions triggered by the user → like clicking a button, typing in a field, hovering, submitting a form, etc.. React uses camelCase for event names (e.g., onClick, onChange) instead of lowercase like HTML (onclick).. Functions handle events → you write a function and tell React to run it when the event happens.. No parentheses when passing the function in JSX (onClick={handleClick}) → React will call it only when the event happens.. Event handling in React works a bit differently than plain HTML/JS because of the Virtual DOM.. You can pass arguments to event handler functions if needed.",
+    theory: `- **Event Handling in React**  
+  - **Events = actions triggered by the user** → like clicking a button, typing in a field, hovering, or submitting a form.  
+  - React uses **camelCase** for event names (e.g., onClick, onChange) instead of lowercase like HTML ( onclick ).  
+  - **Functions handle events** → you write a function and tell React to run it when the event happens.  
+  - No parentheses when passing the function in JSX → onClick={handleClick}  
+    - React will call it **only when the event happens**.  
+  - Event handling in React works a bit differently than plain HTML/JS because of the **Virtual DOM**.  
+  - You can also **pass arguments** to event handler functions if needed.  `,
     code: `
 // ClickMe component:
 // - This is a functional component that demonstrates event handling in React.
@@ -165,10 +206,26 @@ render(<ClickMe />);
   {
     id: "react-hooks",
     title: "React Hooks",
-    theory: `React Hooks
-Hooks are special functions in React that let you “hook into” React features (like state and lifecycle) without writing class components.. Introduced in React 16.8 to make functional components more powerful.. Only work in functional components, not in class components.. Hooks start with the word use → e.g., useState, useEffect.. 🔹 Most Common Hooks : useState :- Lets a component store and update state, Example:- const [count, setCount] = useState(0);. useEffect :- Lets a component run code at specific points (like on mount, update, or unmount) Example:- Fetching data after component loads.. useContext :- Lets components share data without passing props manually through every level.. useRef:- Lets you access DOM elements directly or store values that don’t trigger re-render. useReducer :- Lets you manage complex state logic, an alternative to useState.. 🔹 Why Hooks Are Useful.. Makes functional components powerful (no need for classes).. Helps reuse logic between components.. Simplifies state management and side-effects.. Keeps code clean and easier to read.`,
-    code: `
-// Timer component:
+    theory: `- **React Hooks**  
+  - Hooks are **special functions** in React that let you *“hook into”* React features (like state and lifecycle) without writing class components.  
+  - **Introduced in React 16.8** → made functional components more powerful.  
+  - **Only work in functional components** (not in class components).  
+  - Hooks always start with **use** → e.g., useState, useEffect.  
+- 🔹 **Most Common Hooks:**  
+  - **useState** → Lets a component store and update state.  
+    - Example: const [count, setCount] = useState(0); 
+  - **useEffect** → Runs code at specific points (mount, update, unmount).  
+    - Example: fetching data after component loads.  
+  - **useContext** → Shares data without passing props manually through every level.  
+  - **useRef** → Access DOM elements directly or store values that don’t trigger re-render.  
+  - **useReducer** → Manages complex state logic, an alternative to useState.  
+- 🔹 **Why Hooks Are Useful:**  
+  - Makes **functional components powerful** (no need for classes).  
+  - Helps **reuse logic** between components.  
+  - Simplifies **state management** and **side effects**.  
+  - Keeps code **clean and easier to read**.`,  
+
+code:`// Timer component:
 // - This functional component demonstrates useState and useEffect hooks in React.
 // - It keeps track of time in seconds and updates every second.
 function Timer() {
@@ -207,9 +264,7 @@ render(<Timer />);
    {
     id: "mapping",
     title: "Mapping & Lists",
-    theory: `Mapping in React
-
-Mapping = displaying a list of items dynamically in your UI.. In React, we use JavaScript’s map() function to loop through arrays and render components for each item.. Useful for things like lists of users, products, posts, or menu items.. Each item must have a unique key prop → helps React track changes efficiently.`,
+    theory: ``,
     code: `
 // ListMapping component:
 // - Demonstrates how to render a list of items in React using the map() function.

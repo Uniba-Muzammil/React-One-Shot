@@ -4,6 +4,8 @@ import topicsData from "../data/topicsData";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import { motion } from "framer-motion";
 import { RotateCcw, Play } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+
 
 export default function TopicDetail() {
   const { id } = useParams();
@@ -62,16 +64,24 @@ export default function TopicDetail() {
           </h2>
 
           {/* Bullet-style theory points: split by ". " or ": " */}
-          <ul className="space-y-4 text-gray-700 leading-relaxed list-disc list-inside">
-            {topic.theory
-              .split(/\. |: /) // split by ". " or ": "
-              .filter(Boolean)
-              .map((point, index) => (
-                <li key={index} className="text-gray-700">
-                  {point.trim()}
-                </li>
-              ))}
-          </ul>
+         {/* Bullet-style theory points: split by ". " or ": " */}
+<div className="prose prose-indigo max-w-none text-gray-700 leading-relaxed">
+  <ReactMarkdown
+    components={{
+      ul: ({ node, ...props }) => (
+        <ul className="list-disc list-inside space-y-2" {...props} />
+      ),
+      li: ({ node, ...props }) => (
+        <li className="text-gray-700" {...props} />
+      ),
+    }}
+  >
+    {topic.theory.trim()}
+  </ReactMarkdown>
+</div>
+
+
+
         </motion.div>
 
         {/* Code Editor Section (unchanged) */}
