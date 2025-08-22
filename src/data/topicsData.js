@@ -264,7 +264,16 @@ render(<Timer />);
    {
     id: "mapping",
     title: "Mapping & Lists",
-    theory: ``,
+    theory: `- **Mapping in React**  
+  - Mapping = displaying a list of items **dynamically** in your UI.  
+  - In React, we use JavaScript’s **.map() function** to loop through arrays and render components for each item.  
+  - Useful for things like:  
+    - Lists of **users**  
+    - **Products**  
+    - **Posts**  
+    - **Menu items**  
+  - Each item must have a **unique key prop** → helps React track changes efficiently.  
+`,
     code: `
 // ListMapping component:
 // - Demonstrates how to render a list of items in React using the map() function.
@@ -297,9 +306,16 @@ render(<ListMapping />);
   {
     id: "react-routing",
     title: "React Routing",
-    theory: `Routing in React
-
-Routing = showing different pages/components based on the URL.. In React, everything is a component, so routing decides which component to show.. React doesn’t have built-in routing → we use React Router library.. Routes make your app feel like a multi-page website while still being a single-page app (SPA).. 🔹 Key Concepts:- BrowserRouter:-  Wraps your app → enables routing.. Routes:- Contains all your route definitions.. Route:- Defines path → component mapping.. Link:- Used to navigate between routes without reloading the page.`,
+    theory: `- **Routing in React**  
+  - Routing = showing different **pages/components** based on the **URL**.  
+  - In React, everything is a **component**, so routing decides which component to show.  
+  - React doesn’t have built-in routing → we use the **React Router** library.  
+  - Routes make your app feel like a **multi-page website** while still being a **single-page app (SPA)**.  
+- **🔹 Key Concepts**  
+  - **BrowserRouter** → Wraps your app and enables routing.  
+  - **Routes** → Container that holds all your route definitions.  
+  - **Route** → Defines a path → component mapping.  
+  - **Link** → Used to navigate between routes without reloading the page.  `,
     code: `
 // React Routing example
 // - Importing routing components from react-router-dom:
@@ -354,9 +370,20 @@ render(<AppRouter />);
   {
     id: "api-integration",
     title: "API Integration",
-    theory: `API Integration in React
-
-API = Application Programming Interface → a way for your app to get or send data from a server.. In React, API integration means fetching data (like users, posts, weather info) and showing it in your components.. You can also send data to APIs (like forms or updates).. Common methods to interact with APIs in React :- Fetch API → built-in in browsers, Axios → popular library, easier syntax and features.. 🔹 Steps to Integrate an API (Axios) : Install Axios :- npm install axios.. Use useEffect to fetch data, Fetch data when the component loads.. Store data in state, Use useState to save API response.. Render data in your component`,
+    theory: `- **API Integration in React**  
+  - **API** = Application Programming Interface → a way for your app to **get or send data** from a server.  
+  - In React, API integration means:  
+    - **Fetching data** (e.g., users, posts, weather info) and showing it in your components.  
+    - **Sending data** to APIs (e.g., forms, updates).  
+  - **Common methods** to interact with APIs in React:  
+    - **Fetch API** → built into browsers.  
+    - **Axios** → popular library, easier syntax and extra features.  
+- **🔹 Steps to Integrate an API (with Axios):**  
+  1. **Install Axios** → npm install axios
+  2. **Use useEffect** → to fetch data when the component loads.  
+  3. **Store data in state** → use useState to save API response.  
+  4. **Render data** in your component.  
+`,
     code: `
 // Users component:
 // - Demonstrates fetching data from an API, using state, useEffect, and conditional rendering.
