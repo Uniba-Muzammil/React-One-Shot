@@ -166,38 +166,7 @@ render(<ClickMe />);
     id: "react-hooks",
     title: "React Hooks",
     theory: `React Hooks
-
-Hooks are special functions in React that let you “hook into” React features (like state and lifecycle) without writing class components.. Introduced in React 16.8 to make functional components more powerful.. Only work in functional components, not in class components.. Hooks start with the word use → e.g., useState, useEffect.. 🔹 Most Common Hooks
-
- useState:- Lets a component store and update state : Example: const [count, setCount] = useState(0);
-
-useEffect
-
-Lets a component run code at specific points (like on mount, update, or unmount).
-
-Example: Fetching data after component loads.
-
-useContext
-
-Lets components share data without passing props manually through every level.
-
-useRef
-
-Lets you access DOM elements directly or store values that don’t trigger re-render.
-
-useReducer
-
-Lets you manage complex state logic, an alternative to useState.
-
-🔹 Why Hooks Are Useful
-
-Makes functional components powerful (no need for classes).
-
-Helps reuse logic between components.
-
-Simplifies state management and side-effects.
-
-Keeps code clean and easier to read.`,
+Hooks are special functions in React that let you “hook into” React features (like state and lifecycle) without writing class components.. Introduced in React 16.8 to make functional components more powerful.. Only work in functional components, not in class components.. Hooks start with the word use → e.g., useState, useEffect.. 🔹 Most Common Hooks : useState :- Lets a component store and update state, Example:- const [count, setCount] = useState(0);. useEffect :- Lets a component run code at specific points (like on mount, update, or unmount) Example:- Fetching data after component loads.. useContext :- Lets components share data without passing props manually through every level.. useRef:- Lets you access DOM elements directly or store values that don’t trigger re-render. useReducer :- Lets you manage complex state logic, an alternative to useState.. 🔹 Why Hooks Are Useful.. Makes functional components powerful (no need for classes).. Helps reuse logic between components.. Simplifies state management and side-effects.. Keeps code clean and easier to read.`,
     code: `
 // Timer component:
 // - This functional component demonstrates useState and useEffect hooks in React.
@@ -240,13 +209,7 @@ render(<Timer />);
     title: "Mapping & Lists",
     theory: `Mapping in React
 
-Mapping = displaying a list of items dynamically in your UI.
-
-In React, we use JavaScript’s map() function to loop through arrays and render components for each item.
-
-Useful for things like lists of users, products, posts, or menu items.
-
-Each item must have a unique key prop → helps React track changes efficiently.`,
+Mapping = displaying a list of items dynamically in your UI.. In React, we use JavaScript’s map() function to loop through arrays and render components for each item.. Useful for things like lists of users, products, posts, or menu items.. Each item must have a unique key prop → helps React track changes efficiently.`,
     code: `
 // ListMapping component:
 // - Demonstrates how to render a list of items in React using the map() function.
@@ -281,31 +244,7 @@ render(<ListMapping />);
     title: "React Routing",
     theory: `Routing in React
 
-Routing = showing different pages/components based on the URL.
-
-In React, everything is a component, so routing decides which component to show.
-
-React doesn’t have built-in routing → we use React Router library.
-
-Routes make your app feel like a multi-page website while still being a single-page app (SPA).
-
-🔹 Key Concepts
-
-BrowserRouter
-
-Wraps your app → enables routing.
-
-Routes
-
-Contains all your route definitions.
-
-Route
-
-Defines path → component mapping.
-
-Link
-
-Used to navigate between routes without reloading the page.`,
+Routing = showing different pages/components based on the URL.. In React, everything is a component, so routing decides which component to show.. React doesn’t have built-in routing → we use React Router library.. Routes make your app feel like a multi-page website while still being a single-page app (SPA).. 🔹 Key Concepts:- BrowserRouter:-  Wraps your app → enables routing.. Routes:- Contains all your route definitions.. Route:- Defines path → component mapping.. Link:- Used to navigate between routes without reloading the page.`,
     code: `
 // React Routing example
 // - Importing routing components from react-router-dom:
@@ -362,34 +301,7 @@ render(<AppRouter />);
     title: "API Integration",
     theory: `API Integration in React
 
-API = Application Programming Interface → a way for your app to get or send data from a server.
-
-In React, API integration means fetching data (like users, posts, weather info) and showing it in your components.
-
-You can also send data to APIs (like forms or updates).
-
-Common methods to interact with APIs in React:
-
-Fetch API → built-in in browsers.
-
-Axios → popular library, easier syntax and features.
-
-🔹 Steps to Integrate an API
-
-Install Axios (optional)
-
-npm install axios
-
-
-Use useEffect to fetch data
-
-Fetch data when the component loads.
-
-Store data in state
-
-Use useState to save API response.
-
-Render data in your component`,
+API = Application Programming Interface → a way for your app to get or send data from a server.. In React, API integration means fetching data (like users, posts, weather info) and showing it in your components.. You can also send data to APIs (like forms or updates).. Common methods to interact with APIs in React :- Fetch API → built-in in browsers, Axios → popular library, easier syntax and features.. 🔹 Steps to Integrate an API (Axios) : Install Axios :- npm install axios.. Use useEffect to fetch data, Fetch data when the component loads.. Store data in state, Use useState to save API response.. Render data in your component`,
     code: `
 // Users component:
 // - Demonstrates fetching data from an API, using state, useEffect, and conditional rendering.
