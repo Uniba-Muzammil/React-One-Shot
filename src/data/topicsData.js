@@ -59,23 +59,49 @@ code: `// This is how you write comments inside jsx but this wont work under ret
   {
     id: "jsx-components",
     title: "JSX & Components",
-    theory: `- **JSX (JavaScript XML)** → a syntax that lets you write HTML inside JavaScript.  
+    theory: `### **What is JSX (JavaScript XML)?**
+- A syntax that lets you write HTML inside JavaScript.  
 - Looks like HTML but is actually JavaScript under the hood.  
 - Makes UI code more readable.  
-- **Components** → building blocks of React apps.  
-  - **Functional Components**  
-    - The most common type.  
-    - Defined as simple JavaScript functions.  
-    - Accept props (inputs) and return JSX.  
-    - Can use React Hooks (like useState, useEffect ) for state and lifecycle.  
-    - Easier to read and test.  
-  - **Class Components**  
-    - Older way of writing components.  
-    - Defined as ES6 classes that extend React.Component.  
-    - Use a render()  method to return JSX.  
-    - State and lifecycle methods are handled inside the class.  
-    - Rarely used in modern React, but still supported.  
-- Each component is reusable, just like Lego blocks.
+
+
+
+
+---
+
+### **What are Components?**
+- A **Component** in React is like a small building block of your website or app.  
+- Think of them like *LEGO pieces 🧩* → You can create small pieces (components) and then join them together to build a big thing (your app).  
+- Each component is a **reusable piece of code** that can show something on the screen (like a button, a navbar, or a form).  
+- Components make your code **organized, reusable, and easy to manage**.  
+
+
+---
+
+### **Types of Components**
+
+There are **two types of components**:  
+
+1. **Functional Components**  
+   - Written as functions.  
+   - **Example:**  
+     function Hello() {  
+       return <h1>Hello World!</h1>;  
+     }  
+
+2. **Class Components** *(older way, not used much now)*  
+   - Written as classes.  
+   - **Example:**  
+     class Hello extends React.Component {  
+       render() {  
+         return <h1>Hello World!</h1>;  
+       }  
+     }  
+
+
+
+
+
 `,
     code: `
 //3. Components
@@ -370,15 +396,12 @@ render(<AppRouter />);
   {
     id: "api-integration",
     title: "API Integration",
-    theory: `- **API Integration in React**  
-  - **API** = Application Programming Interface → a way for your app to **get or send data** from a server.  
-  - In React, API integration means:  
-    - **Fetching data** (e.g., users, posts, weather info) and showing it in your components.  
-    - **Sending data** to APIs (e.g., forms, updates).  
-  - **Common methods** to interact with APIs in React:  
-    - **Fetch API** → built into browsers.  
-    - **Axios** → popular library, easier syntax and extra features.  
-- **🔹 Steps to Integrate an API (with Axios):**  
+    theory: `- **API Integration in React** , *API* = Application Programming Interface → a way for your app to get or send data from a server.  
+  - In React, API integration means: **Fetching data** (e.g., users, posts, weather info) and showing it in your components. **Sending data** to APIs (e.g., forms, updates).  
+   - **Common methods** to interact with APIs in React:  
+     **Fetch API** → built into browsers.  
+     **Axios** → popular library, easier syntax and extra features.  
+     **🔹 Steps to Integrate an API (with Axios):**  
   1. **Install Axios** → npm install axios
   2. **Use useEffect** → to fetch data when the component loads.  
   3. **Store data in state** → use useState to save API response.  

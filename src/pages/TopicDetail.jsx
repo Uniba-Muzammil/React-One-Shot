@@ -67,17 +67,20 @@ export default function TopicDetail() {
          {/* Bullet-style theory points: split by ". " or ": " */}
 <div className="prose prose-indigo max-w-none text-gray-700 leading-relaxed">
   <ReactMarkdown
-    components={{
-      ul: ({ node, ...props }) => (
-        <ul className="list-disc list-inside space-y-2" {...props} />
-      ),
-      li: ({ node, ...props }) => (
-        <li className="text-gray-700" {...props} />
-      ),
-    }}
-  >
-    {topic.theory.trim()}
-  </ReactMarkdown>
+  components={{
+    p: ({ node, ...props }) => (
+      <p className="mb-3 leading-relaxed" {...props} />
+    ),
+    ul: ({ node, ...props }) => (
+      <ul className="list-disc list-inside space-y-2" {...props} />
+    ),
+    li: ({ node, ...props }) => (
+      <li className="text-gray-700" {...props} />
+    ),
+  }}
+>
+  {topic.theory.trim()}
+</ReactMarkdown>
 </div>
 
 
