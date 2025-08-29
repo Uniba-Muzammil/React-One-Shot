@@ -1,5 +1,6 @@
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const EditorHeader = () => (
   <div className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-t-lg">
@@ -69,22 +70,10 @@ export default function Home() {
   </div>
 </motion.section>
 
-
-
-
-
-
-
-
-
-
-
-
-
       {/* Theory + Practice Section */}
       <section className="mt-24 text-center">
-        <h2 className="text-3xl font-extrabold mb-10">
-          <span className="mr-2">📚</span>
+        <h2 className="text-4xl font-extrabold mb-10">
+          <span className="mr-2"></span>
           <span
             className="text-blue-900"
           >
@@ -107,27 +96,54 @@ export default function Home() {
           </p>
         </div>
       </section>
-
       {/* Features Section */}
-      <section className="mt-24 max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-extrabold text-purple-800 mb-10">🚀 Why Learn with UnibaStack?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
-          <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-purple-200 transition-all">
-            <h3 className="font-bold text-xl text-blue-700 mb-2">✨ Simplified Learning</h3>
-            <p className="text-gray-600">No jargon — just clear explanations with real-life coding examples.</p>
-          </div>
-          <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-purple-200 transition-all">
-            <h3 className="font-bold text-xl text-blue-700 mb-2">💻 Live Code Editor</h3>
-            <p className="text-gray-600">Write, test, and reset code instantly while reading the theory.</p>
-          </div>
-          <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-purple-200 transition-all">
-            <h3 className="font-bold text-xl text-blue-700 mb-2">🎯 Interview Ready</h3>
-            <p className="text-gray-600">Quick review notes & code snippets designed for interview prep.</p>
-          </div>
-        </div>
-      </section>
+     <section className="mt-24 max-w-5xl mx-auto">
+  <h2 className="text-3xl font-extrabold text-purple-800 text-center mb-12">
+     Why Learn with UnibaStack?
+  </h2>
 
-      {/* Demo Section */}
+  <div className="space-y-10">
+    {[
+      {
+        icon: "✨",
+        title: "Simplified Learning",
+        desc: "No jargon — just clear explanations with real-life coding examples.",
+      },
+      {
+        icon: "💻",
+        title: "Live Code Editor",
+        desc: "Write, test, and reset code instantly while reading the theory.",
+      },
+      {
+        icon: "🎯",
+        title: "Interview Ready",
+        desc: "Quick review notes & code snippets designed for interview prep.",
+      },
+    ].map((feature, i) => (
+      <motion.div
+        key={i}
+        className="flex flex-col md:flex-row items-center gap-6"
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.9, delay: i * 0.5 }}
+        viewport={{ once: true }}
+      >
+        {/* Emoji Circle */}
+        <div className="flex-shrink-0 w-20 h-20 flex items-center justify-center rounded-full bg-purple-100 text-3xl shadow-md">
+          {feature.icon}
+        </div>
+
+        {/* Text Content */}
+        <div className="text-center md:text-left">
+          <h3 className="font-bold text-xl text-blue-700 mb-2">{feature.title}</h3>
+          <p className="text-gray-600">{feature.desc}</p>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
+          {/* Demo Section */}
       <section className="mt-24">
         <h2 className="text-3xl font-extrabold text-blue-800 mb-6 text-center"> 🖼️ See It in Action </h2>
         <div className="bg-white rounded-2xl shadow-xl max-w-4xl mx-auto p-6 border">
@@ -156,24 +172,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Roadmap Section */}
-      <section className="mt-24 text-center max-w-5xl mx-auto">
-        <h2 className="text-3xl font-extrabold text-purple-800 mb-10">📈 Your Learning Path</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-gradient-to-r from-blue-100 to-purple-100 p-6 rounded-xl shadow-md">
-            <h3 className="font-bold text-xl text-blue-800 mb-2">Beginner</h3>
-            <p className="text-gray-700">JSX, Components, Props, State</p>
-          </div>
-          <div className="bg-gradient-to-r from-purple-100 to-blue-100 p-6 rounded-xl shadow-md">
-            <h3 className="font-bold text-xl text-blue-800 mb-2">Intermediate</h3>
-            <p className="text-gray-700">Hooks, Events, API Integration</p>
-          </div>
-          <div className="bg-gradient-to-r from-blue-100 to-purple-100 p-6 rounded-xl shadow-md">
-            <h3 className="font-bold text-xl text-blue-800 mb-2">Advanced</h3>
-            <p className="text-gray-700">Projects, Optimization, Interview Prep</p>
-          </div>
-        </div>
-      </section>
+      {/* Learning Path Section */}
+
+      
+
+<section className="mt-24 text-center max-w-5xl mx-auto">
+  <motion.h2
+    className="text-3xl font-extrabold text-purple-800 mb-10"
+    initial={{ opacity: 0, scale: 0.8 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ type: "spring", duration: 0.8 }}
+    viewport={{ once: true }}
+  >
+    📈 Your Learning Path
+  </motion.h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {[
+      {
+        title: "Beginner",
+        desc: "JSX, Components, Props, State",
+        gradient: "from-blue-100 to-purple-100",
+      },
+      {
+        title: "Intermediate",
+        desc: "Hooks, Events, API Integration",
+        gradient: "from-purple-100 to-blue-100",
+      },
+      {
+        title: "Advanced",
+        desc: "Projects, Optimization, Interview Prep",
+        gradient: "from-blue-100 to-purple-100",
+      },
+    ].map((stage, i) => (
+      <motion.div
+        key={i}
+        className={`bg-gradient-to-r ${stage.gradient} p-6 rounded-xl shadow-md`}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          type: "spring",
+          duration: 0.8,
+          bounce: 0.3,
+          delay: i * 0.3,
+        }}
+        viewport={{ once: true, amount: 0.2 }}
+        whileHover={{ scale: 1.05, rotate: i === 1 ? 1 : -1 }}
+      >
+        <h3 className="font-bold text-xl text-blue-800 mb-2">{stage.title}</h3>
+        <p className="text-gray-700">{stage.desc}</p>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
       {/* What You'll Learn Section */}
       <section id="topics" className="mt-24 text-center max-w-4xl mx-auto pb-6">
@@ -191,7 +242,6 @@ export default function Home() {
       </section>
 
       {/* Final Call to Action */}
-{/* Final Call to Action */}
 <section className="relative py-20 bg-gradient-to-r from-blue-200 to-purple-300 text-gray-900 overflow-hidden">
   {/* Decorative Shape (curved top & bottom) */}
   <div className="absolute inset-0">
@@ -224,17 +274,20 @@ export default function Home() {
     <p className="text-lg mb-6 text-gray-700">
       Learn React with hands-on coding, interactive previews, and simplified theory — everything you need in one place.
     </p>
-    <button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-3 rounded-full shadow-md font-semibold 
-      transition-all duration-500 ease-in-out 
-      hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500 
-      hover:scale-110 hover:shadow-xl">
-      Start Learning Now
-    </button>
+    <Link
+  to="/guide"
+  className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-3 rounded-full shadow-md font-semibold 
+    transition-all duration-500 ease-in-out 
+    hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500 
+    hover:scale-110 hover:shadow-xl"
+>
+  Start Learning Now
+</Link>
   </div>
 </section>
-
-
-
     </div>
   );
 }
+
+
+

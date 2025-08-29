@@ -5,7 +5,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import { motion } from "framer-motion";
 import { RotateCcw, Play } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-
+import { MemoryRouter, Routes, Route, Link } from "react-router-dom";
 
 export default function TopicDetail() {
   const { id } = useParams();
@@ -64,23 +64,30 @@ export default function TopicDetail() {
           </h2>
 
           {/* Bullet-style theory points: split by ". " or ": " */}
-         {/* Bullet-style theory points: split by ". " or ": " */}
+         
 <div className="prose prose-indigo max-w-none text-gray-700 leading-relaxed">
   <ReactMarkdown
-  components={{
-    p: ({ node, ...props }) => (
-      <p className="mb-3 leading-relaxed" {...props} />
-    ),
-    ul: ({ node, ...props }) => (
-      <ul className="list-disc list-inside space-y-2" {...props} />
-    ),
-    li: ({ node, ...props }) => (
-      <li className="text-gray-700" {...props} />
-    ),
-  }}
->
-  {topic.theory.trim()}
-</ReactMarkdown>
+    components={{
+      p: ({ node, ...props }) => (
+        <p className="mb-3 leading-relaxed" {...props} />
+      ),
+      ul: ({ node, ...props }) => (
+        <ul className="list-disc list-inside space-y-2" {...props} />
+      ),
+      li: ({ node, ...props }) => (
+        <li className="text-gray-700" {...props} />
+      ),
+      h2: ({ node, ...props }) => (
+        <h2 className="text-xl font-bold mt-8 mb-4 text-gray-900" {...props} />
+      ),
+      h3: ({ node, ...props }) => (
+        <h3 className="text-lg font-semibold mt-6 mb-3 text-gray-800" {...props} />
+      ),
+      hr: () => <hr className="my-6 border-t-2 border-gray-300" />,
+    }}
+  >
+    {topic.theory.trim()}
+  </ReactMarkdown>
 </div>
 
 
@@ -94,7 +101,7 @@ export default function TopicDetail() {
           transition={{ duration: 0.7 }}
           className="md:w-1/2 p-6 bg-white shadow-2xl rounded-2xl border border-blue-300/60 relative overflow-hidden"
         >
-          <LiveProvider code={runCode} scope={{ React }} noInline>
+   <LiveProvider code={runCode} scope={{ React }} noInline>
             <h3 className="text-lg font-semibold text-blue-600 mb-2">💻 Live Code Editor</h3>
             <LiveEditor
               value={code}

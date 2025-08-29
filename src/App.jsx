@@ -1,5 +1,5 @@
 import React from "react"; 
-import { Routes, Route } from "react-router-dom"; 
+import { Routes, Route, BrowserRouter } from "react-router-dom"; 
 import Navbar from "./components/Navbar";
  import Home from "./pages/Home"; 
  import About from "./pages/About"; 
@@ -9,9 +9,12 @@ import Navbar from "./components/Navbar";
   import Reviews from "./pages/Review"; 
   import AboutWebsite from "./pages/AboutWebsite";
   import Footer from "./components/Footer";
+  import ScrollToTop from "./components/ScorllToTop";
   function App() 
   { 
     return ( 
+    <>
+      <ScrollToTop />
 <div className="flex flex-col min-h-screen">
       <Navbar />
 
@@ -31,6 +34,8 @@ import Navbar from "./components/Navbar";
       {/* Footer will appear on every page */}
       <Footer />
     </div>
+    </>
+  
   );
 }
 

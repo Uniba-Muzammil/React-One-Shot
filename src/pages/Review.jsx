@@ -59,7 +59,7 @@ export default function Reviews() {
   return (
     <section
       id="reviews"
-      className="bg-gradient-to-b from-indigo-100 via-purple-50 to-blue-100 py-20 px-4 sm:px-8 lg:px-16 min-h-screen"
+      className="bg-gradient-to-b from-purple-100 via-indigo-100 to-blue-100 py-20 px-4 sm:px-8 lg:px-16 min-h-screen"
     >
       <div className="w-full max-w-6xl mx-auto text-center">
         <h2 className="text-5xl font-extrabold text-blue-800 mb-12 transition-all duration-300 hover:scale-105 mt-0">
@@ -97,27 +97,46 @@ export default function Reviews() {
               rows="4"
               required
             />
-            <div className="flex items-center gap-2 overflow-visible">
-              <label className="text-blue-900 font-semibold">Rating:</label>
-              <select
-                name="rating"
-                value={form.rating}
-                onChange={handleChange}
-                className="p-2 border-2 border-blue-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 relative z-10"
-              >
-                {[5, 4, 3, 2, 1].map((star) => (
-                  <option key={star} value={star}>
-                    {star} ★
-                  </option>
-                ))}
-              </select>
-            </div>
-            <button
-              type="submit"
-              className="bg-indigo-300 text-gray-600 font-semibold px-6 py-3 rounded-2xl shadow-lg hover:bg-blue-700 transition-all duration-300"
-            >
-              Submit Review
-            </button>
+        <div className="flex items-center gap-2 overflow-visible pb-2 relative">
+  <label className="text-blue-900 font-semibold">Rating:</label>
+  <div className="relative">
+    <select
+      name="rating"
+      value={form.rating}
+      onChange={handleChange}
+      className="p-2 pl-4 pr-8 border-2 border-blue-200 rounded-xl 
+                 bg-white text-gray-700 font-medium shadow-sm cursor-pointer
+                 hover:border-blue-400 hover:shadow-md
+                 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-500
+                 transition-all duration-300 ease-in-out
+                 appearance-none"
+    >
+      {[5, 4, 3, 2, 1].map((star) => (
+        <option key={star} value={star}>
+          {star} ★
+        </option>
+      ))}
+    </select>
+    {/* Custom arrow */}
+    <span className="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+      ▼
+    </span>
+  </div>
+</div>
+ <button
+  type="submit"
+  className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold 
+             px-6 py-3 rounded-2xl shadow-lg 
+             hover:from-blue-500 hover:to-indigo-600 hover:text-white 
+             hover:scale-105 active:scale-95 
+             focus:ring-4 focus:ring-blue-300 
+             transition-all duration-500 ease-in-out"
+>
+  Submit Review
+</button>
+
+
+
           </form>
         </div>
 

@@ -2,11 +2,12 @@ const topicsData = [
   {
     id: "react",
     title: "React",
-    theory:  `
-    - ***What is React ?*** React is a JavaScript library created by Facebook for building user interfaces (UIs).
-- It helps you make fast and interactive websites.
-- Uses a component-based structure → you break your UI into small, reusable pieces.
-- Uses a Virtual DOM → updates only the parts of the page that change (not the whole page). This makes React websites and applications faster.
+    theory:  `## **What is React?**  
+- React is a JavaScript library created by Facebook for building user interfaces (UIs).  
+- It helps you build fast and interactive websites and apps.  
+- Uses a component-based structure → UI is divided into small, reusable pieces.  
+- Uses a **Virtual DOM** → updates only the parts of the page that change (not the whole page).  
+- This makes React applications faster and more efficient than traditional websites.  
 `.trim(),
     
 code: `// This is how you write comments inside jsx but this wont work under return jsx block or you can say jsx markup the double slash will through error
@@ -65,31 +66,30 @@ code: `// This is how you write comments inside jsx but this wont work under ret
 - Makes UI code more readable.  
 
 
-
-
 ---
 
 ### **What are Components?**
-- A **Component** in React is like a small building block of your website or app.  
+- A Component in React is like a small building block of your website or app.  
 - Think of them like *LEGO pieces 🧩* → You can create small pieces (components) and then join them together to build a big thing (your app).  
-- Each component is a **reusable piece of code** that can show something on the screen (like a button, a navbar, or a form).  
-- Components make your code **organized, reusable, and easy to manage**.  
+- Each component is a reusable piece of code that can show something on the screen (like a button, a navbar, or a form).  
+- Components make your code organized, reusable, and easy to manage.  
 
 
 ---
 
 ### **Types of Components**
 
-There are **two types of components**:  
+There are *two* types of components:  
 
-1. **Functional Components**  
+**1. Functional Components**  
    - Written as functions.  
    - **Example:**  
      function Hello() {  
        return <h1>Hello World!</h1>;  
      }  
+    
 
-2. **Class Components** *(older way, not used much now)*  
+**2. Class Components** (older way, not used much now) 
    - Written as classes.  
    - **Example:**  
      class Hello extends React.Component {  
@@ -100,11 +100,9 @@ There are **two types of components**:
 
 
 
-
-
 `,
     code: `
-//3. Components
+// Components
 //Components are reusable pieces of UI.
 //They can be functional or class-based.
 //Functional components are simpler and recommended for most cases.
@@ -120,39 +118,64 @@ There are **two types of components**:
 //To use a component, import it and include it in JSX:
 //import MyComponent from './MyComponent';
 
-//4. Understanding JSX
+// Understanding JSX
 //JSX: JavaScript + XML/HTML syntax.
 //You can write HTML inside JavaScript functions.
 
 //below is a simple example of JSX and component as a live code you can see it will render a simple h1 element with text inside it, also you have to use (export deafult componenet name) while working with react, I have used render here due to SOME LIMITATIONS OF THE LIVE CODING ENVIRONMENT, for instance you should use export default Hello; in a real React project, instead of render(Hello />)
 
 function Hello() {
-  return <h1>Hello, JSX and Components!</h1>;
+  return (
+  <h1>Hello, JSX and Components!</h1>
+  )
 }
 render(<Hello />);
 
  //Rules of JSX:
-//It IS MANDATORY To Return only one parent element which can be h1 here to add more elements you can use a fragment or a div.
+//It IS MANDATORY To Return atleast one parent element which can be h1 here to add more elements you can use a fragment or a div.
 //Close all tags (<Hello /> not <Hello>).
-//for practice you can remove the div or fragment and see it will throw an error.  
+//for practice you can add more elements like h2 etc..., click on run and check if its throws an error, to resolve the error wrap it into div such that <div></div> or an empty fragment such that <></> then you can add multiple elements to your return block.  
+//Example
+//function Hello() {
+  //return (
+  //<div>
+  //<h1>Hello, JSX and Components!</h1>
+  //<h1>Hello, JSX and Components!</h1>
+  //</div>
+  //)
+//}
+//render(<Hello />);
+//OR
+//function Hello() {
+  //return (
+  //<>
+  //<h1>Hello, JSX and Components!</h1>
+  //<h1>Hello, JSX and Components!</h1>
+  //</>
+  //)
+//}
+//render(<Hello />);
+
 `.trim()
   },
   {
     id: "props-state",
     title: "Props & State",
-    theory: `- **Props in React**  
-  - Short for **Properties** → like arguments you pass into a function.  
-  - Used to send data from a **parent component → child component**  
-    - (Parent is like the giver, child is like the receiver).  
-  - **Read-only** → the child cannot change props, it can only use them.  
-  - Think of props as **inputs or gifts** a parent gives to a child component.  
-  - Makes components **reusable**, because the same child can display different data depending on what the parent sends.  
-- **State in React**  
-  - **State = a component’s personal data storage** → it belongs to the component itself.  
-  - Unlike props, **state can change inside the component**.  
-  - When state changes → React automatically **re-renders the UI**.  
-  - Think of state as the child’s **own snack box** → the child can add, remove, or change what’s inside anytime.  
-  - State is perfect for things like **counters, toggles, forms, or any interactive data** that changes over time.  
+    theory: `## **Props in React** 
+- Short for Properties → like arguments you pass into a function.  
+- Used to send data from a **parent component → child component** (Parent is like the giver, child is like the receiver).  
+- Read-only → the child cannot change props, it can only use them.  
+- Think of props as inputs or gifts a parent gives to a child component.  
+- Makes components reusable, because the same child can display different data depending on what the parent sends.  
+
+---
+
+## **State in React**
+- *State* = a component’s personal data storage → it belongs to the component itself.  
+- Unlike props, state can change inside the component.  
+- When state changes → React automatically re-renders the UI.  
+- Think of state as the child’s own snack box → the child can add, remove, or change what’s inside anytime.  
+- State is perfect for things like counters, toggles, forms, or any interactive data that changes over time.  
 `,
     code: `
 // Greeting component:
@@ -160,7 +183,9 @@ render(<Hello />);
 // - Props are used to pass data from parent to child components.
 // - Here we use 'props.name' to display a dynamic name inside the heading.
 function Greeting(props) {
-  return <h2>Hello, {props.name}!</h2>; // Display the name passed via props
+  return(
+  <h2>Hello, {props.name}!</h2>
+  ) // Display the name passed via props
 }
 
 // Counter component:
@@ -193,19 +218,22 @@ function Counter() {
 // - This line mounts the Counter component into the DOM so it becomes visible on the page.
 render(<Counter />);
 
+//click the increment in the OUTPUT to see the count increasing by 1 on each click.
+// practice by changing the name prop value to your name and see the changes in the output.
+
     `.trim()
   },
   {
     id: "event-handling",
     title: "Event Handling",
-    theory: `- **Event Handling in React**  
-  - **Events = actions triggered by the user** → like clicking a button, typing in a field, hovering, or submitting a form.  
-  - React uses **camelCase** for event names (e.g., onClick, onChange) instead of lowercase like HTML ( onclick ).  
-  - **Functions handle events** → you write a function and tell React to run it when the event happens.  
-  - No parentheses when passing the function in JSX → onClick={handleClick}  
-    - React will call it **only when the event happens**.  
-  - Event handling in React works a bit differently than plain HTML/JS because of the **Virtual DOM**.  
-  - You can also **pass arguments** to event handler functions if needed.  `,
+    theory: `## **Event Handling in React**  
+- *Events = actions triggered by the user* → like clicking a button, typing in a field, hovering, or submitting a form.  
+- React uses **camelCase** for event names (e.g., onClick, onChange) instead of lowercase like HTML (onclick).  
+- Functions handle events → you write a function and tell React to run it when the event happens.  
+- No parentheses when passing the function in JSX → \`onClick={handleClick}\`  
+  - React will call it only when the event happens.  
+- Event handling in React works a bit differently than plain HTML/JS because of the Virtual DOM.  
+- You can also pass arguments to event handler functions if needed.    `,
     code: `
 // ClickMe component:
 // - This is a functional component that demonstrates event handling in React.
@@ -227,29 +255,34 @@ function ClickMe() {
 // - Mounts the ClickMe component into the DOM so it becomes visible on the page.
 render(<ClickMe />);
 
+// Try clicking the "Click Me" button in the output to see the alert message.
+//practice by changing the alert message to something else.
+
     `.trim()
   },
   {
     id: "react-hooks",
     title: "React Hooks",
-    theory: `- **React Hooks**  
-  - Hooks are **special functions** in React that let you *“hook into”* React features (like state and lifecycle) without writing class components.  
-  - **Introduced in React 16.8** → made functional components more powerful.  
-  - **Only work in functional components** (not in class components).  
-  - Hooks always start with **use** → e.g., useState, useEffect.  
-- 🔹 **Most Common Hooks:**  
-  - **useState** → Lets a component store and update state.  
-    - Example: const [count, setCount] = useState(0); 
-  - **useEffect** → Runs code at specific points (mount, update, unmount).  
-    - Example: fetching data after component loads.  
-  - **useContext** → Shares data without passing props manually through every level.  
-  - **useRef** → Access DOM elements directly or store values that don’t trigger re-render.  
-  - **useReducer** → Manages complex state logic, an alternative to useState.  
-- 🔹 **Why Hooks Are Useful:**  
-  - Makes **functional components powerful** (no need for classes).  
-  - Helps **reuse logic** between components.  
-  - Simplifies **state management** and **side effects**.  
-  - Keeps code **clean and easier to read**.`,  
+    theory: `## **React Hooks**  
+- Hooks are special functions in React that let you *“hook into”* React features (like state and lifecycle) without writing class components.  
+- Introduced in React 16.8 → made functional components more powerful.  
+- Only work in functional components (not in class components).  
+- Hooks always start with use → e.g., \`useState\`, \`useEffect\`.  
+
+### **🔹 Most Common Hooks:** 
+- **useState** → Lets a component store and update state.  
+   Example: \`const [count, setCount] = useState(0);\`  
+- **useEffect** → Runs code at specific points (mount, update, unmount).  
+   Example: fetching data after component loads.  
+- **useContext** → Shares data without passing props manually through every level.  
+- **useRef** → Access DOM elements directly or store values that don’t trigger re-render.  
+- **useReducer** → Manages complex state logic, an alternative to useState.  
+
+### 🔹 Why Hooks Are Useful:  
+- Makes functional components powerful (no need for classes).  
+- Helps reuse logic between components.  
+- Simplifies state management and side effects.  
+- Keeps code clean and easier to read. `,  
 
 code:`// Timer component:
 // - This functional component demonstrates useState and useEffect hooks in React.
@@ -284,21 +317,25 @@ function Timer() {
 // Render the Timer component:
 // - Mounts the Timer component into the DOM so it becomes visible on the page.
 render(<Timer />);
+// Try waiting and see the seconds count increase every second in the output.
+// Practice by changing the interval time or adding a reset button.
 
     `.trim()
   },
    {
     id: "mapping",
     title: "Mapping & Lists",
-    theory: `- **Mapping in React**  
-  - Mapping = displaying a list of items **dynamically** in your UI.  
-  - In React, we use JavaScript’s **.map() function** to loop through arrays and render components for each item.  
-  - Useful for things like:  
-    - Lists of **users**  
-    - **Products**  
-    - **Posts**  
-    - **Menu items**  
-  - Each item must have a **unique key prop** → helps React track changes efficiently.  
+    theory: `## **Mapping in React**  
+- Mapping = displaying a list of items dynamically in your UI.  
+- In React, we use JavaScript’s **.map() function** to loop through arrays and render components for each item.  
+---
+## *Useful for things like:* 
+  - Lists of users
+  - Products  
+  - Posts  
+  - Menu items 
+  ---
+ Each item must have a **unique key prop** → helps React track changes efficiently.  
 `,
     code: `
 // ListMapping component:
@@ -326,86 +363,160 @@ function ListMapping() {
 // Render the ListMapping component:
 // - Displays the list of fruits on the screen.
 render(<ListMapping />);
+// Try adding more fruits to the array and see them appear in the output.
+// Practice by changing the fruit names or adding more items to the array.
 
 `.trim()
   },
   {
     id: "react-routing",
     title: "React Routing",
-    theory: `- **Routing in React**  
-  - Routing = showing different **pages/components** based on the **URL**.  
-  - In React, everything is a **component**, so routing decides which component to show.  
-  - React doesn’t have built-in routing → we use the **React Router** library.  
-  - Routes make your app feel like a **multi-page website** while still being a **single-page app (SPA)**.  
-- **🔹 Key Concepts**  
-  - **BrowserRouter** → Wraps your app and enables routing.  
-  - **Routes** → Container that holds all your route definitions.  
-  - **Route** → Defines a path → component mapping.  
-  - **Link** → Used to navigate between routes without reloading the page.  `,
+    theory: `## **Routing in React**  
+- *Routing* = showing different pages/components based on the URL.  
+- In React, everything is a component, so routing decides which component to show.  
+- React doesn’t have built-in routing → we use the React Router library.  
+- Routes make your app feel like a multi-page website while still being a single-page app (SPA).  
+
+## 🔹 Key Concepts  
+- **BrowserRouter** → Wraps your app and enables routing.  
+- **Routes** → Container that holds all your route definitions.  
+- **Route** → Defines a path → component mapping.  
+- **Link** → Used to navigate between routes without reloading the page.    `,
     code: `
-// React Routing example
-// - Importing routing components from react-router-dom:
-//   BrowserRouter → wraps the whole app and enables routing.
-//   Routes → container for all the Route components.
-//   Route → defines a single route (path + component to show).
-//   Link → used for navigation without reloading the page.
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+/*
+  ================================
+  🚀 React Routing Explained
+  ================================
+  
+✅ In this example, we are "simulating" routing using React state.
+  
+👉 Why simulation?
+In this live preview environment, we cannot directly use 
+the "react-router-dom" library because of technical restrictions.So we’ll mimic how routing works.
 
-// Home component:
-// - Simple component that shows the Home page text.
+✅ How real routing works:
+- <BrowserRouter> wraps the entire app
+- <Routes> contain multiple <Route path="..."> elements
+- <Link> or <NavLink> are used to navigate
+- The browser URL also updates with the route
+
+  ⚠️ Restriction here:
+     - The URL will NOT change
+     - Navigation is handled only by state
+
+What is a URL?
+
+URL = Uniform Resource Locator → the "address" of a page on the web.
+Example: https://shop.example.com/products/42?color=red#reviews
+
+👉 In React Router:
+- "/" → Home page
+- "/about" → About page
+- "/contact" → Contact page
+
+⚠️ But in THIS demo, since we only use state, the URL bar 
+will NOT change. Navigation is fake (just for learning).
+*/
+
+
+// A simple component for Home Page
 function Home() {
-  return <h2>Home Page</h2>;
+  return <h2>🏠 Home Page</h2>;
 }
 
-// About component:
-// - Simple component that shows the About page text.
+// A simple component for About Page
 function About() {
-  return <h2>About Page</h2>;
+  return <h2>ℹ️ About Page</h2>;
 }
 
-// AppRouter component:
-// - This is where we set up routing for the application.
-function AppRouter() {
+// Main App Component
+function App() {
+  // We store the current page in state
+  const [page, setPage] = React.useState("home");
+
   return (
-    // BrowserRouter:
-    // - Must wrap everything that uses routing.
-    <BrowserRouter>
-      {/* Navigation links:
-          - Link creates navigation without refreshing the page.
-          - "to" defines the path to go to. */}
+    <>
+      {/* Navigation - instead of <Link>, we use buttons here */}
       <nav>
-        <Link to="/">Home</Link> | <Link to="/about">About</Link>
+        {/* On button click, we set "page" state */}
+        <button onClick={() => setPage("home")}>Home</button>
+
+        <button onClick={() => setPage("about")}> About</button>
       </nav>
 
-      {/* Routes:
-          - Contains all route definitions.
-          - Each Route maps a "path" to a "component" (via element). */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
+      {/* Conditional Rendering: 
+          Only show the component that matches "page" */}
+      {page === "home" && <Home />}
+      {page === "about" && <About />}
+    </>
   );
 }
 
-// Render the AppRouter component:
-// - Displays navigation and allows switching between Home and About pages.
-render(<AppRouter />);
+// Render App
+render(<App />);
+
+/*
+  ================================
+  📝 How REAL Routing Works
+  ================================
+
+In a real React project with "react-router-dom":
+
+  1. Install it:
+     npm install react-router-dom
+
+  2. Example:
+
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+     export default function App() {
+       return (
+         <BrowserRouter>
+           <nav>
+             <Link to="/">Home</Link>
+             <Link to="/about">About</Link>
+             <Link to="/contact">Contact</Link>
+           </nav>
+
+           <Routes>
+             <Route path="/" element={<h2>Home Page</h2>} />
+             <Route path="/about" element={<h2>About Page</h2>} />
+             <Route path="/contact" element={<h2>Contact Page</h2>} />
+           </Routes>
+         </BrowserRouter>
+       );
+     }
+
+ In real routing:
+- The URL bar updates ("/about", "/contact", etc.)
+- You can refresh the page and still land on the correct route
+- Navigation is handled by React Router instead of just state
+*/
+
+
+   
 `.trim()
   },
   {
     id: "api-integration",
     title: "API Integration",
-    theory: `- **API Integration in React** , *API* = Application Programming Interface → a way for your app to get or send data from a server.  
-  - In React, API integration means: **Fetching data** (e.g., users, posts, weather info) and showing it in your components. **Sending data** to APIs (e.g., forms, updates).  
-   - **Common methods** to interact with APIs in React:  
-     **Fetch API** → built into browsers.  
-     **Axios** → popular library, easier syntax and extra features.  
-     **🔹 Steps to Integrate an API (with Axios):**  
-  1. **Install Axios** → npm install axios
-  2. **Use useEffect** → to fetch data when the component loads.  
-  3. **Store data in state** → use useState to save API response.  
-  4. **Render data** in your component.  
+    theory: `## **API Integration in React**  
+
+*API* = Application Programming Interface → a way for your app to get or send data from a server.  
+
+- In React, API integration means:  
+  - Fetching data (e.g., users, posts, weather info) and showing it in your components.  
+  - Sending data to APIs (e.g., forms, updates).  
+
+### 🔹 Common Methods  
+- **Fetch API** → built into browsers.  
+- **Axios** → popular library, easier syntax and extra features.  
+
+### 🔹 Steps to Integrate an API (with Axios):  
+1. **Install Axios** → npm install axios
+2. **Use useEffect** → to fetch data when the component loads.  
+3. **Store data in state** → useState to save API response.  
+4. **Render data** in your component.  
 `,
     code: `
 // Users component:
@@ -452,13 +563,42 @@ function Users() {
 // Render the Users component:
 // - Mounts the component into the DOM so the list of users is visible on the page.
 render(<Users />);
+// Try running the code to see the list of users fetched from the API.
+// Practice by changing the API URL or displaying more user details.
 
     `.trim()
   },
   {
     id: "project-building-tips",
     title: "Project Building Tips",
-    theory: "Here are some tips to build React projects: Plan your component hierarchy.. Keep components small and reusable. Use state and props effectively. Use hooks for state and side-effects. Test components regularly.  Use tools like React Developer Tools. Write clean and readable code. Use version control (Git)."
+    theory: `## **Project Building in React**  
+
+Here are some useful tips to build React projects effectively:  
+
+- **Plan your component hierarchy** 
+
+ decide how components will be structured.  
+- **Keep components small and reusable** 
+
+easier to maintain and test.  
+- **Use state and props effectively** 
+
+pass data clearly between components.  
+- **Use hooks** 
+
+manage state and side-effects (like fetching data).  
+- **Test components regularly** 
+
+to catch bugs early.  
+- **Use developer tools** 
+
+e.g., React Developer Tools for debugging.  
+- **Write clean and readable code**
+
+improves collaboration and understanding.  
+- **Use version control (Git)** 
+
+track changes and collaborate easily.  `
     .trim(),
     code: `
 function Tips() {
@@ -480,6 +620,8 @@ function Tips() {
 }
 
 render(<Tips />);
+// Practice by adding more tips or styling the list.
+// You can also create a full project using these tips.
     `.trim()
   }
 ];
